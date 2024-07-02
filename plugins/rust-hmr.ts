@@ -1,11 +1,13 @@
+import subprocess from "node:child_process";
 import type { PluginOption } from "vite";
 
-export default function CustomHmr(): PluginOption {
+export default function RustHmr(): PluginOption {
   return {
-    name: "custom-hmr",
+    name: "rust-hmr",
     handleHotUpdate({ file, server }) {
       if (file.endsWith(".rs")) {
-        console.log("recompiling rust...");
+        console.log("recompiling rust binaries...");
+        subprocess.execSync("npm run wasm:build");
         server.ws.send({
           type: "full-reload",
           path: "*",

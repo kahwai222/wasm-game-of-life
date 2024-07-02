@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 
-// import CustomHmr from "./plugins/custom-hmr";
+import RustHmr from "./plugins/rust-hmr";
 
 // https://astro.build/config
 export default defineConfig({
-  // vite: {
-  //   plugins: [CustomHmr()],
-  // },
+  vite: {
+    plugins: [RustHmr()],
+  },
 });

@@ -17,5 +17,6 @@
 
 <script>
 	import init, { greet } from "../wasms/wasm-game-of-life/pkg/wasm_game_of_life";
-	init().then(() => greet("Kah Wai"))
+	await init();
+	greet("Kah Wai")
 </script>
