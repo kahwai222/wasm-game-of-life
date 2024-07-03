@@ -6,7 +6,7 @@ export default function RustHmr(): PluginOption {
     name: "rust-hmr",
     handleHotUpdate({ file, server }) {
       if (file.endsWith(".rs")) {
-        console.log("recompiling rust binaries...");
+        console.log("recompiling wasm binary...");
         subprocess.execSync("npm run wasm:build");
         server.ws.send({
           type: "full-reload",
